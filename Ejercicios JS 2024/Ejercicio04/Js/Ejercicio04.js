@@ -1,43 +1,47 @@
-document.addEventListener("DOMContentLoaded", function() {
+const pantalla = document.getElementById('pantalla');
+let operacion = '';
 
-    let num1 = 0;
-    let num2 = 0;
-    let opera;
+function actualizarPantalla(valor) {
+    pantalla.textContent = valor;
+}
 
-    function darNumero(numero){
-        if(num1==0 && num1 !== '0'){
-            num1 = numero;
-        }else{
-            num1 += numero;
-        }
-        refrescar();
+function limpiarPantalla() {
+    operacion = '';
+    actualizarPantalla('0');
+}
+
+function agregarDigito(digito) {
+    if (operacion.length === 0 || operacion === '0') {
+        operacion = digito;
+    } else {
+        operacion += digito;
     }
+    actualizarPantalla(operacion);
+}
 
-    function operar(valor){
-        if (num1 == 0){
-            num1 = parseFloat(document.getElementById("pantalla").value);
-        }
-        num2 = parseFloat(num1);
-        num1= 0;
-        opera = valor;
+function agregarOperador(operador) {
+    if (operacion.length > 0 && !isNaN(parseInt(operacion[operacion.length - 1]))) {
+        operacion += operador;
+        actualizarPantalla(operacion);
     }
+}
 
-    function esIgual(){
-        num1 = parseFloat(num1);
-        switch (opera){
-            case 1:
-                num1 += num2;
-            break;
-            case 2:
-                num1 = num2 - num1;
-            break;
-        }
-        refrescar();
-        num2 = parseFloat(num1);
-        num1 = 0;
+function calcularResultado() {
+    if (operacion.length > 0 && !isNaN(parseInt(operacion[operacion.length - 1]))) {
+        let resultado = eval(operacion);
+        actualizarPantalla(resultado);
+        operacion = resultado.toString();
     }
+}
 
-    function refrescar(){
-        document.getElementById("pantalla").value = num1;
-    }
-})
+function adjuntarEventListeners() {
+    document.querySelectorAll('.badge.bg-info').forEach(boton => {
+        boton.addEventListener('click', () => agregarDigito(boton.textContent));
+    });
+
+    document.getElementById('mas').addEventListener('click', () => agregarOperador('+'));
+    document.getElementById('menos').addEventListener('click', () => agregarOperador('-'));
+    document.getElementById('igual').addEventListener('click', calcularResultado);
+}
+
+adjuntarEventListeners();
