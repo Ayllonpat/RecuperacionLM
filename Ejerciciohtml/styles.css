@@ -1,0 +1,159 @@
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    padding: 1rem 0;
+}
+
+header img {
+    height: 50px;
+    vertical-align: middle;
+}
+
+header h1 {
+    display: inline;
+    margin-left: 1rem;
+}
+
+nav {
+    background-color: #333;
+    overflow: hidden;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    float: left;
+}
+
+nav ul li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+    background-color: #111;
+}
+
+main {
+    display: flex;
+    margin: 20px;
+}
+
+main section {
+    flex: 3;
+    margin-right: 20px;
+}
+
+aside {
+    flex: 1;
+    background-color: #f4f4f4;
+    padding: 20px;
+    border-left: 1px solid #ddd;
+}
+
+section#mi-perfil table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+section#mi-perfil table th,
+section#mi-perfil table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+section#mi-perfil table th {
+    background-color: #f2f2f2;
+}
+
+article {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+.icons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.icons span {
+    cursor: pointer;
+    padding: 5px 10px;
+    border: 1px solid #ddd;
+    background-color: #eee;
+    border-radius: 5px;
+}
+
+.gallery {
+    position: relative;
+}
+
+.gallery img {
+    width: 100%;
+}
+
+.gallery .icons {
+    position: absolute;
+    left: 0;
+    bottom: 10px;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+.gallery .comments {
+    margin-top: 10px;
+}
+
+.friend-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 10px;
+}
+
+.friend-grid div {
+    text-align: center;
+}
+
+.friend-grid img {
+    width: 100%;
+    border-radius: 50%;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+fieldset {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #333;
+    color: white;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
