@@ -32,6 +32,9 @@ function calcularResultado() {
         actualizarPantalla(resultado);
         operacion = resultado.toString();
     }
+    if(operador){
+        pantalla.limpiarPantalla;
+    }
 }
 
 function adjuntarEventListeners() {
