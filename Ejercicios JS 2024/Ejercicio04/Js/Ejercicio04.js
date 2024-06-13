@@ -31,9 +31,8 @@ function calcularResultado() {
         let resultado = eval(operacion);
         actualizarPantalla(resultado);
         operacion = resultado.toString();
-    }
-    if(operador){
-        pantalla.limpiarPantalla;
+    } else {
+        limpiarPantalla();//si operacion esta vacia o acaba en un operador
     }
 }
 
